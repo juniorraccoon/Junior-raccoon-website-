@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Babywear Wholesale Showcase</title>
+    <!-- Animate.css & FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Animation Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo-box {
+            background: #ffffff;
+            padding: 25px 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border: 3px solid #ff6b81;
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff6b81;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.9rem;
+            color: #666;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* Products Section */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #ff6b81;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #ff6b81;
+            display: block;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .product-details {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .product-info {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .btn-qty {
+            background: #ff6b81;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-val {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .btn-order {
+            width: 100%;
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn-order:hover {
+            background: #1ebd56;
+        }
+
+        /* Delivery Notice */
+        .notice-banner {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+            font-weight: 500;
+            border: 1px solid #ffeeba;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Hero Section with Logo Animation -->
+    <div class="hero">
+        <div class="logo-box animate__animated animate__backInDown">
+            <!-- നിങ്ങളുടെ ബ്രാൻഡ് പേര് ഇവിടെ മാറ്റുക -->
+            <div class="logo-text"><i class="fa-solid fa-baby"></i> BABY BRAND</div>
+        </div>
+        <p class="tagline animate__animated animate__fadeInUp animate__delay-1s">
+            Premium Wholesale Babywear Collection
+        </p>
+        <div class="scroll-indicator">
+            <i class="fa-solid fa-chevron-down"></i> സ്ക്രോൾ ചെയ്ത് പ്രൊഡക്റ്റുകൾ കാണുക
+        </div>
+    </div>
+
+    <!-- 2. Products Section -->
+    <div class="container">
+        <h2 class="section-title">Wholesale Collections</h2>
+
+        <div class="product-grid">
+            
+            <!-- Product Item 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500" alt="Baby Shirt Set" class="product-img">
+                <div class="product-details">
+                    <span class="badge">Size Set: 1 - 5 Years</span>
+                    <h3 class="product-title">Boys Cotton Shirt Set</h3>
+                    <p class="product-info">1 Set = 5 Pieces (1Yr, 2Yr, 3Yr, 4Yr, 5Yr)</p>
+                    
+                    <div class="quantity-control">
+                        <span>Sets (സെറ്റുകൾ):</span>
+                        <button class="btn-qty" onclick="updateQty('qty1', -1)">-</button>
+                        <span class="qty-val" id="qty1">1</span>
+                        <button class="btn-qty" onclick="updateQty('qty1', 1)">+</button>
+                    </div>
+
+                    <button class="btn-order" onclick="sendOrder('Boys Cotton Shirt Set', '1-5 Years', 'qty1')">
+                        <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Item 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=500" alt="Baby Frock Set" class="product-img">
+                <div class="product-details">
+                    <span class="badge">Size Set: 1 - 5 Years</span>
+                    <h3 class="product-title">Girls Party Dress Frock</h3>
+                    <p class="product-info">1 Set = 5 Pieces (1Yr, 2Yr, 3Yr, 4Yr, 5Yr)</p>
+
+                    <div class="quantity-control">
+                        <span>Sets (സെറ്റുകൾ):</span>
+                        <button class="btn-qty" onclick="updateQty('qty2', -1)">-</button>
+                        <span class="qty-val" id="qty2">1</span>
+                        <button class="btn-qty" onclick="updateQty('qty2', 1)">+</button>
+                    </div>
+
+                    <button class="btn-order" onclick="sendOrder('Girls Party Dress Frock', '1-5 Years', 'qty2')">
+                        <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Item 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1514090458221-65bb69cf63e6?w=500" alt="Casual Wear Set" class="product-img">
+                <div class="product-details">
+                    <span class="badge">Size Set: 1 - 5 Years</span>
+                    <h3 class="product-title">Casual Unisex Shorts Set</h3>
+                    <p class="product-info">1 Set = 5 Pieces (1Yr, 2Yr, 3Yr, 4Yr, 5Yr)</p>
+
+                    <div class="quantity-control">
+                        <span>Sets (സെറ്റുകൾ):</span>
+                        <button class="btn-qty" onclick="updateQty('qty3', -1)">-</button>
+                        <span class="qty-val" id="qty3">1</span>
+                        <button class="btn-qty" onclick="updateQty('qty3', 1)">+</button>
+                    </div>
+
+                    <button class="btn-order" onclick="sendOrder('Casual Unisex Shorts Set', '1-5 Years', 'qty3')">
+                        <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 3. Delivery Notice -->
+        <div class="notice-banner">
+            <i class="fa-solid fa-truck-fast"></i> <b>Delivery Info:</b> All wholesale orders will be delivered within next week!
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Baby Brand Wholesale. All Rights Reserved.
+    </footer>
+
+    <!-- JavaScript for Ordering & Logic -->
+    <script>
+        // നിങ്ങളുടെ വാട്ട്‌സ്ആപ്പ് നമ്പർ (Country Code സഹിതം നൽകുക)
+        const whatsappNumber = "919000000000"; // ഇവിടെ നിങ്ങളുടെ നമ്പർ നൽകുക (Eg: 919876543210)
+
+        function updateQty(id, change) {
+            let qtyElem = document.getElementById(id);
+            let currentQty = parseInt(qtyElem.innerText);
+            currentQty += change;
+            if (currentQty < 1) currentQty = 1;
+            qtyElem.innerText = currentQty;
+        }
+
+        function sendOrder(productName, sizeSet, qtyId) {
+            let setsCount = document.getElementById(qtyId).innerText;
+            
+            // WhatsApp Message Text
+            let message = `Hello, I would like to place a Wholesale Order:%0A%0A` +
+                          `*Product:* ${productName}%0A` +
+                          `*Size Group:* ${sizeSet}%0A` +
+                          `*Quantity:* ${setsCount} Set(s)%0A%0A` +
+                          `Please confirm availability and dispatch timeline.`;
+
+            let whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>
